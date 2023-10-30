@@ -11317,3 +11317,22 @@ section#contact form#contactForm :-ms-input-placeholder {
 #page-top .navbar-other-pages {
   background-color: #212529;
 }
+.shopping-cart {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.shopping-cart svg {
+  color: white;
+  height: 20px;
+}
+.shopping-cart-number {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 50%;
+  color: white;
+}
