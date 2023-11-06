@@ -52,3 +52,37 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+var totalShoppingNumber = 0;
+var totalPrice = 0;
+var totalItems = [];
+//add button event listener
+var shoppingCartButtons = document.getElementsByClassName('btnAddToShoppingCart')
+
+for (let i = 0; i < shoppingCartButtons.length; i++) {
+    shoppingCartButtons[i].addEventListener('click', function(e) {
+        //get item price
+        let price = e.target.getAttribute('data-price');
+        
+        totalPrice = totalPrice + parseInt(price);
+        totalShoppingNumber ++;
+
+        itemNames = e.target.getAttribute('data-name');
+        totalItems.push(itemNames);
+
+
+        document.getElementById('shopping-cart-number').innerHTML = totalShoppingNumber;
+        document.getElementById('totalPrice').innerHTML = totalPrice;
+        document.getElementById('itemList').innerHTML = renderItems(totalItems);
+      
+    
+    });
+}
+
+
+function renderItems(items) {
+    let results = "";
+    items.forEach(element => {
+    results += element + "<br/>"    
+    }); 
+    return results;
+}

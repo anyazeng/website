@@ -44,6 +44,14 @@
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item shopping-cart">
+                        <div style="display: flex; align-items: baseline;">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div id="shopping-cart-number" class="shopping-cart-number">0</div>
+                        </div>
+                    </li>
+                    <li>Total Price: <div id="totalPrice"></div></li>
+                   
                 </ul>
             </div>
         </div>
@@ -55,6 +63,8 @@
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Shop all</h2>
                 <h3 class="section-subheading text-muted">Add to your Wardrobe.</h3>
+                <h4>Items list</h4>
+                <p id="itemList"></p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -69,6 +79,8 @@
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Contrasted Earrings - Black Marble</div>
                             <div class="portfolio-caption-subheading text-muted">24 karat gold plated.</div>
+                            <span>80</span>
+                            <button class="btn btn-success btnAddToShoppingCart" data-price="80" data-name="Contrasted Earrings">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -84,6 +96,8 @@
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Mini Stack Ring</div>
                             <div class="portfolio-caption-subheading text-muted">Get into the ring stack trend.</div>
+                            <span>90</span>
+                            <button class="btn btn-success btnAddToShoppingCart" data-price="90" data-name="Mini Stack Ring">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -99,6 +113,8 @@
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Triplet Y Neckalce</div>
                             <div class="portfolio-caption-subheading text-muted">Delicate slash bold.</div>
+                            <span>100</span>
+                            <button class="btn btn-success btnAddToShoppingCart" data-price="100" data-name="Triplet Y Necklace">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -114,6 +130,8 @@
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Lines</div>
                             <div class="portfolio-caption-subheading text-muted">Branding</div>
+                            <span>150</span>
+                            <button class="btn btn-success btnAddToShoppingCart" data-price="150">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -750,7 +768,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="../js/scripts.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
