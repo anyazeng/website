@@ -1,26 +1,26 @@
 // This is a public sample test API key.
 // Don’t submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
-const stripe = Stripe("pk_test_L1f0e3XAzjsG7jtp4uN7L9ql");
+const stripe = Stripe("pk_test_51O9gWHG3wP0vwK7rXgZeHyXW6Dk80Uvt9w9fHe8AA7r3tLZAntCYHln4bu34sVBuP1etAV9N83rbucjY9ABmiGEw00kStCaIQ1");
 
 // The items the customer wants to buy
 const items = [{ id: "xl-tshirt" }];
+const amount = 200*100;
 
 let elements;
 
 initialize();
 checkStatus();
-
 document
   .querySelector("#payment-form")
   .addEventListener("submit", handleSubmit);
 
 // Fetches a payment intent and captures the client secret
 async function initialize() {
-  const response = await fetch("/create-payment-intent", {
+  const response = await fetch("http://localhost:4242/create-payment-intent", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items }),
+    body: JSON.stringify({ items, amount}),
   });
   const { clientSecret } = await response.json();
 
@@ -40,12 +40,12 @@ async function initialize() {
 async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
-
+  let emailAddress = document.getElementById('customerEmail').value;
   const { error } = await stripe.confirmPayment({
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: "http://localhost:4242/checkout.html",
+      return_url: "http://localhost:5500/confirmation.html",
       receipt_email: emailAddress,
     },
   });
