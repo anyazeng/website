@@ -87,27 +87,6 @@ function renderItems(items) {
     return results;
 }
 
-document.getElementById('buy-link').addEventListener('click', function() {
-    fetch('/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          product_id: 'your_product_id',
-        }),
-      })
-      .then(response => response.json())
-      .then(session => {
-        // Redirect to the payment gateway's checkout page
-        return stripe.redirectToCheckout({ sessionId: session.id });
-      })
-      .then(result => {
-        if (result.error) {
-          alert(result.error.message);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  });
+document.getElementById('btn-checkout').addEventListener('click', function() {
+    window.location = `/checkout.html?items=${totalItems}&amount=${totalPrice}`
+});

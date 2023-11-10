@@ -4,8 +4,18 @@
 const stripe = Stripe("pk_test_51O9gWHG3wP0vwK7rXgZeHyXW6Dk80Uvt9w9fHe8AA7r3tLZAntCYHln4bu34sVBuP1etAV9N83rbucjY9ABmiGEw00kStCaIQ1");
 
 // The items the customer wants to buy
-const items = [{ id: "xl-tshirt" }];
-const amount = 200*100;
+//read from query string
+const currentUrl = window.location.href;
+
+// Create a URLSearchParams object from the query string
+const urlParams = new URLSearchParams(currentUrl);
+
+// Get the value of the 'amount' parameter
+const amount = urlParams.get('amount');
+
+// Get the value of the 'items' parameter as a comma-separated string
+const itemsString = urlParams.get('items');
+const items = itemsString ? itemsString.split(',') : [];
 
 let elements;
 
